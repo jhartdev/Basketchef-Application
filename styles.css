@@ -171,7 +171,7 @@ form div {
   color: #f2f0ee;
   height: 36px;
   width: 80px;
-  font-size: 14px;
+  font-size: 12px;
   font-family: "Questrial", sans-serif;
   background-color: #e4b7a4;
   border: none;
@@ -201,9 +201,10 @@ form div {
 .recipe {
   position: relative;
   height: 40px;
-  max-height: 50px;
+  min-height: 50px;
   overflow: hidden;
   cursor: pointer;
+  background-color: #e4b7a49f;
 }
 
 .background-img {
