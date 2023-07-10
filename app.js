@@ -175,15 +175,21 @@ function loadRecipes() {
           clearTimeout(timeoutID);
         });
 
-        newRecipeDiv.addEventListener("touchstart", function () {
+        newRecipeDiv.addEventListener("touchstart", function (event) {
+          event.preventDefault(); // Prevent text highlighting
           timeoutID = setTimeout(function () {
             // Remove the recipe when long press event occurs
             removeRecipe(recipe, key);
           }, 4000);
         });
 
-        newRecipeDiv.addEventListener("touchend", function () {
+        newRecipeDiv.addEventListener("touchend", function (event) {
+          event.preventDefault(); // Prevent text highlighting
           clearTimeout(timeoutID);
+        });
+
+        newRecipeDiv.addEventListener("touchmove", function (event) {
+          event.preventDefault(); // Prevent scrolling while touching
         });
 
         newRecipeDiv.addEventListener("click", function () {
@@ -227,11 +233,11 @@ document
     itemsList.innerHTML = ""; // Clear the shopping list
   });
 
-  document.getElementById("emptyingredients-list-btn").addEventListener("click", function () {
-    event.preventDefault();
-    const ingredientsList = document.getElementById("ingredients-list");
-    ingredientsList.innerHTML = "";
-  })
+document.getElementById("emptyingredients-list-btn").addEventListener("click", function () {
+  event.preventDefault();
+  const ingredientsList = document.getElementById("ingredients-list");
+  ingredientsList.innerHTML= "";
+});
 
 function clearFormInput() {
   // Clear the form fields

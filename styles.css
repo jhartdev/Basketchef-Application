@@ -193,7 +193,6 @@ form div {
   grid-gap: 10px;
   margin: 10px 30px 30px 30px;
   overflow: auto;
-  min-height: 100%;
   max-width: 320px;
   border: none;
   border-radius: 12px;
