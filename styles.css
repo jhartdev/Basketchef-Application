@@ -6,9 +6,7 @@ body {
   background: #e4b7a4;
   color: #202020;
   user-select: none;
-  height: 100%;
-  min-height: 100vh;
-  width: 100vw;
+  max-height: 100vh;
   letter-spacing: 0.2px;
   line-height: 2px;
   overflow: hidden;
@@ -45,27 +43,30 @@ body {
   width: 200px;
 }
 
-.container {
-  max-height: 465px;
-  max-width: 320px;
-  border: none;
-  border-radius: 12px;
+.card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 15px;
+  padding: 10px;
+  max-height: calc(100vh - 30px);
+  max-width: calc(100vw - 30px);
+  background-color: #f2f0ee;
+  border-radius: 35px;
   display: flex;
-  flex-wrap: wrap;
-  margin: 30px;
+  align-items: center;
+  justify-content: center;
   overflow: auto;
 }
 
-.card {
-  position: relative;
-  width: 324px;
-  min-height: 615px;
-  background-color: #f2f0ee;
-  border-radius: 35px;
-  align-items: center;
-  justify-content: center;
-  margin: 15px;
-  padding: 10px;
+.container {
+  margin-top: 30px;
+}
+
+#add-form-container {
+  margin: 30px;
 }
 
 ul {
@@ -73,7 +74,7 @@ ul {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 440px;
+  min-height: 100%;
 }
 
 .custom-scrollbar {
@@ -120,7 +121,7 @@ ul {
 }
 
 form {
-  height: 650px;
+  max-height: 650px;
   width: 100%;
 }
 
@@ -189,7 +190,7 @@ form div {
   grid-gap: 10px;
   margin: 10px 30px 30px 30px;
   overflow: auto;
-  max-height: 465px;
+  min-height: 100%;
   max-width: 320px;
   border: none;
   border-radius: 12px;
@@ -275,26 +276,31 @@ form div {
 #list-btn {
   border-right: none;
   border-radius: 32px;
-  left: 296px;
+  right: 24px;
   background-color: #202020;
   border: none;
 }
 
 #add-recipe-btn {
-  margin-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   border-radius: 32px;
-  left: 160px;
   font-size: 26px;
   color: #e4b7a4;
   background: #f2f0ee;
   border: solid 2px #e4b7a4;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 
 #book-btn,
 #list-btn,
 #add-recipe-btn {
   position: fixed;
-  top: 595px;
+  bottom: 34px;
   min-width: 60px;
   height: 42px;
   margin: -2px;
