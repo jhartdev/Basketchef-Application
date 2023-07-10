@@ -58,7 +58,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .container {
@@ -100,6 +100,9 @@ ul {
 }
 
 .card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-family: Helvetica, sans-serif;
   font-size: 26px;
   text-align: left;
@@ -337,7 +340,7 @@ form div {
   border: solid #e4b7a4 1px;
   padding: 5px;
   cursor: pointer;
-  margin-left: 40px;
+  margin-right: 30px;
 }
 
 #emptyingredients-list-btn {
