@@ -265,7 +265,7 @@ form div {
   border-radius: 12px;
 }
 
-.navigation-btns {
+#navigation-btns {
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -278,11 +278,12 @@ form div {
   top: 92%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 /* Media query for larger screens */
 @media (min-width: 670px) {
-  .navigation-btns {
+  #navigation-btns {
     max-width: 475px; /* Adjust the value to your desired maximum width for larger screens */
   }
 }

@@ -21,6 +21,7 @@ const recipesInDB = ref(database, "recipes");
 const bookBtn = document.getElementById("book-btn");
 const listBtn = document.getElementById("list-btn");
 const addRecipeBtn = document.getElementById("add-recipe-btn");
+const navBtns = document.getElementById("navigation-btns")
 const card1 = document.getElementById("card-1");
 const card2 = document.getElementById("card-2");
 const card3 = document.getElementById("card-3");
@@ -30,11 +31,14 @@ const card4 = document.getElementById("card-4");
 card2.style.display = "none";
 card3.style.display = "none";
 card4.style.display = "none";
+document.body.style.backgroundColor = "#202020";
 
-// Show card 2 after 2000ms
+
 setTimeout(function () {
   card1.style.display = "none";
   card2.style.display = "block";
+  navBtns.style.zIndex = "0";
+  document.body.style.backgroundColor = "#e4b7a4";
 }, 4000);
 
 let currentCard = card2; // Initialize currentCard with a default value
