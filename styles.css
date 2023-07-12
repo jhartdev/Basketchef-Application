@@ -381,3 +381,7 @@ form div {
   cursor: pointer;
   height: 37px;
 }
+
+.selected {
+  background-color: #f7f7f7;
+}

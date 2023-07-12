@@ -136,6 +136,8 @@ function saveRecipeToDatabase(recipe) {
     });
 }
 
+let selectedRecipes = [];
+
 function loadRecipes() {
   // Retrieve recipes from the database
   onValue(recipesInDB, function (snapshot) {
@@ -172,6 +174,12 @@ function loadRecipes() {
           if (xBtn.style.display === "none") {
             xBtn.style.display = "inline";
           } else {
+            // If delete buttons were displayed, remove selected recipes
+            if (selectedRecipes.length > 0) {
+              removeSelectedRecipes(selectedRecipes);
+              selectedRecipes = []; // Clear the selected recipes array
+            }
+
             xBtn.style.display = "none";
           }
         });
@@ -184,8 +192,19 @@ function loadRecipes() {
         xBtn.addEventListener("click", function (event) {
           event.stopPropagation(); // Prevent event from propagating to the recipe div
           event.preventDefault();
+
           const recipeKey = key;
-          removeRecipe(recipeKey);
+
+          // Toggle the selection status of the recipe
+          const index = selectedRecipes.indexOf(recipeKey);
+          if (index > -1) {
+            selectedRecipes.splice(index, 1); // Remove from selected recipes
+          } else {
+            selectedRecipes.push(recipeKey); // Add to selected recipes
+          }
+
+          // Toggle the styling of the recipe element
+          newRecipeDiv.classList.toggle("selected");
         });
 
         newRecipeDiv.addEventListener("click", function () {
@@ -221,6 +240,14 @@ function removeRecipe(recipeKey) {
     .catch((error) => {
       console.error("Error removing recipe from the database:", error);
     });
+}
+
+function removeSelectedRecipes(recipeKeys) {
+  // Iterate over the array of selected recipe keys
+  for (const recipeKey of recipeKeys) {
+    // Remove each selected recipe
+    removeRecipe(recipeKey);
+  }
 }
 
 document
