@@ -324,6 +324,7 @@ form div {
 #add-recipe-btn:active,
 #remove-list-btn:active,
 #emptyingredients-list-btn:active,
+#remove-recipe-btn:active,
 #add-btn:active,
 #ingredient-btn:active,
 .recipe:active {
@@ -340,7 +341,7 @@ form div {
   transition: text-decoration 0.9s ease-in-out;
 }
 
-#remove-list-btn {
+#remove-list-btn, #remove-recipe-btn {
   background-color: transparent;
   color: #e4b7a4;
   font-family: Helvetica, sans-serif;

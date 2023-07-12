@@ -166,35 +166,6 @@ function loadRecipes() {
         newRecipeDiv.appendChild(recipeNameSpan);
         gridContainer.appendChild(newRecipeDiv);
 
-        let timeoutID;
-
-        newRecipeDiv.addEventListener("mousedown", function () {
-          timeoutID = setTimeout(function () {
-            // Remove the recipe when long press event occurs
-            removeRecipe(recipe, key);
-          }, 5000);
-        });
-
-        newRecipeDiv.addEventListener("mouseup", function () {
-          clearTimeout(timeoutID);
-        });
-
-        newRecipeDiv.addEventListener("touchstart", function (event) {
-          event.preventDefault(); // Prevent text highlighting
-          timeoutID = setTimeout(function () {
-            // Remove the recipe when long press event occurs
-            removeRecipe(recipe, key);
-          }, 4000);
-        });
-
-        newRecipeDiv.addEventListener("touchend", function (event) {
-          event.preventDefault(); // Prevent text highlighting
-          clearTimeout(timeoutID);
-        });
-
-        newRecipeDiv.addEventListener("touchmove", function (event) {
-          event.preventDefault(); // Prevent scrolling while touching
-        });
 
         newRecipeDiv.addEventListener("click", function () {
           // Retrieve the ingredients for the clicked recipe
