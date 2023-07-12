@@ -21,7 +21,7 @@ const recipesInDB = ref(database, "recipes");
 const bookBtn = document.getElementById("book-btn");
 const listBtn = document.getElementById("list-btn");
 const addRecipeBtn = document.getElementById("add-recipe-btn");
-const navBtns = document.getElementById("navigation-btns")
+const navBtns = document.getElementById("navigation-btns");
 const card1 = document.getElementById("card-1");
 const card2 = document.getElementById("card-2");
 const card3 = document.getElementById("card-3");
@@ -32,7 +32,6 @@ card2.style.display = "none";
 card3.style.display = "none";
 card4.style.display = "none";
 document.body.style.backgroundColor = "#202020";
-
 
 setTimeout(function () {
   card1.style.display = "none";
@@ -141,7 +140,6 @@ function loadRecipes() {
   // Retrieve recipes from the database
   onValue(recipesInDB, function (snapshot) {
     const recipes = snapshot.val();
-    console.log(recipes);
     const gridContainer = document.querySelector(".grid-container");
     gridContainer.innerHTML = ""; // Clear the existing recipe elements
 
@@ -163,9 +161,32 @@ function loadRecipes() {
         recipeNameSpan.classList.add("recipe-name");
         recipeNameSpan.textContent = recipe.name;
 
+        const xBtn = document.createElement("button");
+        xBtn.classList.add("x-btn");
+        xBtn.textContent = "Delete";
+        xBtn.style.display = "none";
+
+        const removeRecipeBtn = document.getElementById("remove-recipe-btn");
+
+        removeRecipeBtn.addEventListener("click", function () {
+          if (xBtn.style.display === "none") {
+            xBtn.style.display = "inline";
+          } else {
+            xBtn.style.display = "none";
+          }
+        });
+
+        recipeNameSpan.appendChild(xBtn);
         newRecipeDiv.appendChild(recipeNameSpan);
         gridContainer.appendChild(newRecipeDiv);
 
+        // Event listener for the remove button
+        xBtn.addEventListener("click", function (event) {
+          event.stopPropagation(); // Prevent event from propagating to the recipe div
+          event.preventDefault();
+          const recipeKey = key;
+          removeRecipe(recipeKey);
+        });
 
         newRecipeDiv.addEventListener("click", function () {
           // Retrieve the ingredients for the clicked recipe
@@ -189,8 +210,9 @@ function loadRecipes() {
   });
 }
 
-function removeRecipe(recipe, recipeKey) {
+function removeRecipe(recipeKey) {
   // Remove the recipe from the database
+  console.log(recipeKey);
   remove(ref(database, `recipes/${recipeKey}`))
     .then(() => {
       console.log("Recipe removed from the database");
@@ -208,11 +230,13 @@ document
     itemsList.innerHTML = ""; // Clear the shopping list
   });
 
-document.getElementById("emptyingredients-list-btn").addEventListener("click", function () {
-  event.preventDefault();
-  const ingredientsList = document.getElementById("ingredients-list");
-  ingredientsList.innerHTML= "";
-});
+document
+  .getElementById("emptyingredients-list-btn")
+  .addEventListener("click", function () {
+    event.preventDefault();
+    const ingredientsList = document.getElementById("ingredients-list");
+    ingredientsList.innerHTML = "";
+  });
 
 function clearFormInput() {
   // Clear the form fields
