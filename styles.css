@@ -383,5 +383,5 @@ form div {
 }
 
 .selected {
-  background-color: #f7f7f7;
+  filter: grayscale();
 }
