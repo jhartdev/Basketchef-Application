@@ -165,10 +165,15 @@ function loadRecipes() {
 
         const xBtn = document.createElement("button");
         xBtn.classList.add("x-btn");
-        xBtn.textContent = "Delete";
+        xBtn.textContent = "Select";
         xBtn.style.display = "none";
 
         const removeRecipeBtn = document.getElementById("remove-recipe-btn");
+
+        // Define variables to track the button state
+        let isButtonClicked = false;
+        let originalBackgroundColor = removeRecipeBtn.style.backgroundColor;
+        let originalTextColor = removeRecipeBtn.style.color;
 
         removeRecipeBtn.addEventListener("click", function () {
           if (xBtn.style.display === "none") {
@@ -181,6 +186,18 @@ function loadRecipes() {
             }
 
             xBtn.style.display = "none";
+          }
+
+          if (isButtonClicked) {
+            // Revert background color and text color back to original
+            removeRecipeBtn.style.backgroundColor = originalBackgroundColor;
+            removeRecipeBtn.style.color = originalTextColor;
+            isButtonClicked = false;
+          } else {
+            // Change background color to red and text color to white
+            removeRecipeBtn.style.backgroundColor = "red";
+            removeRecipeBtn.style.color = "white";
+            isButtonClicked = true;
           }
         });
 
@@ -205,6 +222,12 @@ function loadRecipes() {
 
           // Toggle the styling of the recipe element
           newRecipeDiv.classList.toggle("selected");
+          if (xBtn.textContent === "Remove") {
+            xBtn.textContent = "Select";
+          } else {
+            xBtn.textContent = "Remove";
+          }
+          
         });
 
         newRecipeDiv.addEventListener("click", function () {
