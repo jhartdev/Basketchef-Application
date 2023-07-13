@@ -196,6 +196,15 @@ form div {
   border-radius: 12px;
 }
 
+#shoppingList {
+  margin: 10px 30px 30px 30px;
+  overflow: auto;
+  max-width: 100%;
+  max-height: 665px;
+  border: none;
+  border-radius: 12px;
+}
+
 .recipe {
   position: relative;
   border-radius: 12px;
@@ -255,6 +264,7 @@ form div {
   background-color: #202020;
   border: solid 3px #e4b7a4;
   border-radius: 12px;
+  overflow: hidden;
 }
 
 #ingredients-list > li {
