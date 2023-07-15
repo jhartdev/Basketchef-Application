@@ -227,24 +227,46 @@ function loadRecipes() {
           } else {
             xBtn.textContent = "Remove";
           }
-          
         });
 
         newRecipeDiv.addEventListener("click", function () {
           // Retrieve the ingredients for the clicked recipe
           const ingredientsList = document.getElementById("items");
-
-          for (const ingredient of recipe.ingredients) {
-            const listItem = document.createElement("li");
-            listItem.textContent = ingredient;
-            ingredientsList.appendChild(listItem);
-
-            // Add click event listener to the ingredient list item
-            listItem.addEventListener("click", function () {
-              setTimeout(function () {
-                listItem.classList.toggle("line-through");
-              }, 100); // Add a small delay (e.g., 10 milliseconds)
-            });
+    
+          if (newRecipeDiv.classList.contains("recipe-clicked")) {
+            // Remove the relevant ingredients from the shopping list
+            for (const ingredient of recipe.ingredients) {
+              const shoppingListItems = ingredientsList.querySelectorAll("li");
+              for (const shoppingListItem of shoppingListItems) {
+                if (shoppingListItem.textContent.trim() === ingredient) {
+                  shoppingListItem.remove();
+                }
+              }
+            }
+            
+            newRecipeDiv.classList.remove("recipe-clicked");
+            newRecipeDiv.style.backgroundColor = "";
+            recipeNameSpan.textContent = recipe.name;
+            newRecipeDiv.querySelector(".background-img").style.display = "block";
+          } else {
+            // Add the ingredients to the shopping list
+            for (const ingredient of recipe.ingredients) {
+              const listItem = document.createElement("li");
+              listItem.textContent = ingredient;
+              ingredientsList.appendChild(listItem);
+    
+              // Add click event listener to the ingredient list item
+              listItem.addEventListener("click", function () {
+                setTimeout(function () {
+                  listItem.classList.toggle("line-through");
+                }, 100); // Add a small delay (e.g., 100 milliseconds)
+              });
+            }
+            
+            newRecipeDiv.classList.add("recipe-clicked");
+            newRecipeDiv.style.backgroundColor = "green";
+            recipeNameSpan.textContent = "✔️";
+            newRecipeDiv.querySelector(".background-img").style.display = "none";
           }
         });
       }
