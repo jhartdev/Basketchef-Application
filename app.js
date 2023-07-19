@@ -171,13 +171,14 @@ function loadRecipes() {
         const removeRecipeBtn = document.getElementById("remove-recipe-btn");
 
         // Define variables to track the button state
-        let isButtonClicked = false;
         let originalBackgroundColor = removeRecipeBtn.style.backgroundColor;
         let originalTextColor = removeRecipeBtn.style.color;
 
         removeRecipeBtn.addEventListener("click", function () {
           if (xBtn.style.display === "none") {
             xBtn.style.display = "inline";
+            removeRecipeBtn.style.backgroundColor = "red";
+            removeRecipeBtn.style.color = "white";
           } else {
             // If delete buttons were displayed, remove selected recipes
             if (selectedRecipes.length > 0) {
@@ -186,18 +187,8 @@ function loadRecipes() {
             }
 
             xBtn.style.display = "none";
-          }
-
-          if (isButtonClicked) {
-            // Revert background color and text color back to original
             removeRecipeBtn.style.backgroundColor = originalBackgroundColor;
             removeRecipeBtn.style.color = originalTextColor;
-            isButtonClicked = false;
-          } else {
-            // Change background color to red and text color to white
-            removeRecipeBtn.style.backgroundColor = "red";
-            removeRecipeBtn.style.color = "white";
-            isButtonClicked = true;
           }
         });
 
@@ -228,7 +219,7 @@ function loadRecipes() {
             xBtn.textContent = "Remove";
           }
         });
-
+     
         newRecipeDiv.addEventListener("click", function () {
           // Retrieve the ingredients for the clicked recipe
           const ingredientsList = document.getElementById("items");
@@ -247,7 +238,9 @@ function loadRecipes() {
             newRecipeDiv.classList.remove("recipe-clicked");
             newRecipeDiv.style.backgroundColor = "";
             recipeNameSpan.textContent = recipe.name;
+            console.log(newRecipeDiv);
             newRecipeDiv.querySelector(".background-img").style.display = "block";
+            recipeNameSpan.appendChild(xBtn);
           } else {
             // Add the ingredients to the shopping list
             for (const ingredient of recipe.ingredients) {
