@@ -20,90 +20,107 @@
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
-    <div id="navigation-btns">
-      <button id="book-btn">
-        <img class="img-btn" src="/icons8-recipe-100.png" alt="Book Icon" />
-      </button>
-      <button id="add-recipe-btn">+</button>
-      <button id="list-btn">
-        <img
-          class="img-btn"
-          src="/icons8-shopping-cart-96 (1).png"
-          alt="cart Icon"
-        />
-      </button>
-    </div>
-    <div class="card" id="card-1">
-      <div id="logo-container">
-        <div class="logo-card">
+    <div class="container">
+      
+
+
+
+      <div class="card-1" id="card-1">
+        <div id="logo-container">
+          <div class="logo-card">
+            <img
+              class="logo-img"
+              src="/recipelistappimage.svg"
+              alt="basketchef logo"
+            />
+            <h1>Basket-chef</h1>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="card-2" id="card-2">
+        <h2 class="card-title">
+          Recipes<button id="remove-recipe-btn">Remove</button>
+        </h2>
+        <h4 class="grey-text">Start adding recipes!</h4>
+        <div class="grid custom-scrollbar">
+          <div class="recipe">
+            <div class="background-img">
+              <img src="" class="dish-img" alt="" />
+            </div>
+            <span class="recipe-name"></span>
+            <button class="x-btn">Delete</button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="card-3" id="card-3">
+        <h2 class="card-title">
+          Shopping List <button id="remove-list-btn">Empty List</button>
+        </h2>
+        <h4 class="grey-text">Recipe items will appear here...</h4>
+        <div class="container custom-scrollbar" id="shoppingList">
+          <ul id="items"></ul>
+        </div>
+      </div>
+      <div class="card" id="card-4">
+        <h2 class="card-title">Add a new recipe...</h2>
+        <div class="container custom-scrollbar" id="add-form-container">
+          <form>
+            <label for="recipeName">Recipe Name:</label>
+            <input
+              type="text"
+              id="recipeName"
+              name="recipeName"
+              autocomplete="off"
+              required
+            /><br /><br />
+
+            <label for="recipeImage">Add Image:</label>
+            <input
+              type="file"
+              id="recipeImage"
+              name="recipeImage"
+              accept="image/*"
+              required
+            /><br /><br />
+
+            <label for="ingredients">Ingredients:</label><br />
+            <input id="ingredients" name="ingredients" autocomplete="off" />
+            <br /><br />
+            <div>
+              <button id="ingredient-btn">Add Ingredient</button>
+              <button id="emptyingredients-list-btn" formnovalidate>
+                Empty List
+              </button>
+              <input type="submit" id="add-btn" value="Add Recipe" />
+            </div>
+
+            <ul id="ingredients-list"></ul>
+            <!-- This is the ul where ingredients will be added -->
+          </form>
+        </div>
+      </div>
+
+      <div id="navigation-btns">
+        <button id="book-btn">
+          <img class="img-btn" src="/icons8-recipe-100.png" alt="Book Icon" />
+        </button>
+        <button id="add-recipe-btn">+</button>
+        <button id="list-btn">
           <img
-            class="logo-img"
-            src="/recipelistappimage.svg"
-            alt="basketchef logo"
+            class="img-btn"
+            src="/icons8-shopping-cart-96 (1).png"
+            alt="cart Icon"
           />
-          <h1>Basket-chef</h1>
-        </div>
+        </button>
       </div>
-    </div>
-    <div class="card" id="card-2">
-      <h2 class="card-title">Recipes<button id="remove-recipe-btn">Remove</button></h2>
-      <h4 class="grey-text">Start adding recipes!</h4>
-      <div class="grid-container custom-scrollbar">
-        <div class="recipe">
-          <div class="background-img">
-            <img src="" class="dish-img" alt="" />
-          </div>
-          <span class="recipe-name"></span>
-          <button class="x-btn">Delete</button>
-        </div>
-      </div>
-    </div>
-    <div class="card" id="card-3">
-      <h2 class="card-title">
-        Shopping List <button id="remove-list-btn">Empty List</button>
-      </h2>
-      <h4 class="grey-text">Recipe items will appear here...</h4>
-      <div class="container custom-scrollbar" id="shoppingList">
-        <ul id="items"></ul>
-      </div>
-    </div>
-    <div class="card" id="card-4">
-      <h2 class="card-title">Add a new recipe...</h2>
-      <div class="container custom-scrollbar" id="add-form-container">
-        <form>
-          <label for="recipeName">Recipe Name:</label>
-          <input
-            type="text"
-            id="recipeName"
-            name="recipeName"
-            autocomplete="off"
-            required
-          /><br /><br />
 
-          <label for="recipeImage">Add Image:</label>
-          <input
-            type="file"
-            id="recipeImage"
-            name="recipeImage"
-            accept="image/*"
-            required
-          /><br /><br />
 
-          <label for="ingredients">Ingredients:</label><br />
-          <input id="ingredients" name="ingredients" autocomplete="off" />
-          <br /><br />
-          <div>
-            <button id="ingredient-btn">Add Ingredient</button>
-            <button id="emptyingredients-list-btn" formnovalidate>
-              Empty List
-            </button>
-            <input type="submit" id="add-btn" value="Add Recipe" />
-          </div>
-
-          <ul id="ingredients-list"></ul>
-          <!-- This is the ul where ingredients will be added -->
-        </form>
-      </div>
     </div>
     <script src="app.js" type="module"></script>
   </body>
