@@ -24,7 +24,7 @@
       
 
 
-
+      <!-- Loading Card on Start up -->
       <div class="card-1" id="card-1">
         <div id="logo-container">
           <div class="logo-card">
@@ -39,7 +39,7 @@
       </div>
 
 
-
+      <!-- Recipe Collection Card -->
       <div class="card-2" id="card-2">
         <h2 class="card-title">
           Recipes<button id="remove-recipe-btn">Remove</button>
@@ -57,19 +57,21 @@
       </div>
 
 
-
+      <!-- Ingredient Shopping List -->
       <div class="card-3" id="card-3">
         <h2 class="card-title">
           Shopping List <button id="remove-list-btn">Empty List</button>
         </h2>
         <h4 class="grey-text">Recipe items will appear here...</h4>
-        <div class="container custom-scrollbar" id="shoppingList">
+        <div class="custom-scrollbar" id="shoppingList">
           <ul id="items"></ul>
         </div>
       </div>
-      <div class="card" id="card-4">
+
+      <!-- Add Recipe Form Card -->
+      <div class="card-4" id="card-4">
         <h2 class="card-title">Add a new recipe...</h2>
-        <div class="container custom-scrollbar" id="add-form-container">
+        <div class="custom-scrollbar">
           <form>
             <label for="recipeName">Recipe Name:</label>
             <input
@@ -78,26 +80,26 @@
               name="recipeName"
               autocomplete="off"
               required
-            /><br /><br />
+            />
 
-            <label for="recipeImage">Add Image:</label>
+            <label for="imageUpload">Add Image:</label>
             <input
               type="file"
-              id="recipeImage"
-              name="recipeImage"
+              id="imageUpload"
+              name="imageUpload"
               accept="image/*"
               required
-            /><br /><br />
+            />
 
             <label for="ingredients">Ingredients:</label><br />
             <input id="ingredients" name="ingredients" autocomplete="off" />
             <br /><br />
-            <div>
+            <div class="btn-container">
               <button id="ingredient-btn">Add Ingredient</button>
-              <button id="emptyingredients-list-btn" formnovalidate>
+              <button id="emptyingredients-list-btn" type="button" formnovalidate>
                 Empty List
               </button>
-              <input type="submit" id="add-btn" value="Add Recipe" />
+              <input type="submit" id="confirm-btn" />
             </div>
 
             <ul id="ingredients-list"></ul>
@@ -106,14 +108,15 @@
         </div>
       </div>
 
+      <!-- Navigation Buttons -->
       <div id="navigation-btns">
         <button id="book-btn">
-          <img class="img-btn" src="/icons8-recipe-100.png" alt="Book Icon" />
+          <img class="btn-icon" src="/icons8-recipe-100.png" alt="Book Icon" />
         </button>
         <button id="add-recipe-btn">+</button>
         <button id="list-btn">
           <img
-            class="img-btn"
+            class="btn-icon"
             src="/icons8-shopping-cart-96 (1).png"
             alt="cart Icon"
           />

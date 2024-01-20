@@ -90,7 +90,7 @@ document.getElementById("add-btn").addEventListener("click", function (event) {
   event.preventDefault();
 
   const recipeNameInput = document.getElementById("recipeName");
-  const recipeImageInput = document.getElementById("recipeImage");
+  const recipeImageInput = document.getElementById("imageUpload");
 
   const recipe = {
     name: recipeNameInput.value.trim(),
@@ -297,7 +297,7 @@ document
 
 document
   .getElementById("emptyingredients-list-btn")
-  .addEventListener("click", function () {
+  .addEventListener("click", function (event) {
     event.preventDefault();
     const ingredientsList = document.getElementById("ingredients-list");
     ingredientsList.innerHTML = "";
