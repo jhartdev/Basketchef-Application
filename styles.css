@@ -315,7 +315,7 @@ input {
   min-height: 50px;
   overflow: hidden;
   cursor: pointer;
-  background-color: #e4b7a49f;
+  background-color: #e4b7a4ad;
 }
 
 .background-img {
@@ -341,7 +341,7 @@ input {
     0,
     0,
     0,
-    0.4
+    0.6
   ); /* Adjust the opacity value (last parameter) to control the darkness */
   border-radius: inherit;
 }
@@ -354,9 +354,9 @@ input {
   transform: translate(-50%, -50%);
   color: white;
   width: 100%;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: -0.8px;
   text-align: center;
 }
 

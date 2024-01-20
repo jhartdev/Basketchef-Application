@@ -21,9 +21,6 @@
   </head>
   <body>
     <div class="container">
-      
-
-
       <!-- Loading Card on Start up -->
       <div class="card-1" id="card-1">
         <div id="logo-container">
@@ -38,10 +35,11 @@
         </div>
       </div>
 
-
       <!-- Recipe Collection Card -->
       <div class="card-2" id="card-2">
-        <h2 class="card-title">Recipes<button id="edit-recipe-list">Edit</button></h2>
+        <h2 class="card-title">
+          Recipes<button id="edit-recipe-list">Edit</button>
+        </h2>
         <h4 class="grey-text">Start adding recipes!</h4>
         <div class="grid-container custom-scrollbar">
           <div class="recipe">
@@ -49,11 +47,10 @@
               <img src="" class="dish-img" alt="" />
             </div>
             <span class="recipe-name"></span>
-            
-          </div><button class="x-btn"></button>
+            <button class="x-btn"></button>
+          </div>
         </div>
       </div>
-
 
       <!-- Ingredient Shopping List -->
       <div class="card-3" id="card-3">
@@ -94,14 +91,19 @@
             <br /><br />
             <div class="btn-container">
               <button id="ingredient-btn">Add Ingredient</button>
-              <button id="emptyingredients-list-btn" type="button" formnovalidate>
+              <button
+                id="emptyingredients-list-btn"
+                type="button"
+                formnovalidate
+              >
                 Empty List
               </button>
               <input type="submit" id="confirm-btn" />
             </div>
 
-            <ul id="ingredients-list"><!-- This is the ul where ingredients will be added --></ul>
-            
+            <ul id="ingredients-list">
+              <!-- This is the ul where ingredients will be added -->
+            </ul>
           </form>
         </div>
       </div>
@@ -120,8 +122,6 @@
           />
         </button>
       </div>
-
-
     </div>
     <script src="app.js" type="module"></script>
   </body>
