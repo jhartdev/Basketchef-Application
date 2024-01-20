@@ -86,7 +86,7 @@ ingredientBtn.addEventListener("click", function (event) {
   }
 });
 
-document.getElementById("add-btn").addEventListener("click", function (event) {
+document.getElementById("confirm-btn").addEventListener("click", function (event) {
   event.preventDefault();
 
   const recipeNameInput = document.getElementById("recipeName");
@@ -142,6 +142,7 @@ function loadRecipes() {
   // Retrieve recipes from the database
   onValue(recipesInDB, function (snapshot) {
     const recipes = snapshot.val();
+    console.log("Recipes:", recipes);
     const gridContainer = document.querySelector(".grid-container");
     gridContainer.innerHTML = ""; // Clear the existing recipe elements
 
