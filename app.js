@@ -86,43 +86,45 @@ ingredientBtn.addEventListener("click", function (event) {
   }
 });
 
-document.getElementById("confirm-btn").addEventListener("click", function (event) {
-  event.preventDefault();
+document
+  .getElementById("confirm-btn")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
 
-  const recipeNameInput = document.getElementById("recipeName");
-  const recipeImageInput = document.getElementById("imageUpload");
+    const recipeNameInput = document.getElementById("recipeName");
+    const recipeImageInput = document.getElementById("imageUpload");
 
-  const recipe = {
-    name: recipeNameInput.value.trim(),
-    ingredients: [], // Initialize the ingredients array
-    imageURL: null, // Initialize the imageURL property
-  };
-
-  const ingredientsList = document.getElementById("ingredients-list");
-
-  for (let i = 0; i < ingredientsList.children.length; i++) {
-    const ingredient = ingredientsList.children[i].textContent.trim();
-    recipe.ingredients.push(ingredient);
-  }
-
-  const file = recipeImageInput.files[0];
-
-  if (file) {
-    const fileReader = new FileReader();
-    fileReader.onload = function (event) {
-      const imageURL = event.target.result;
-      recipe.imageURL = imageURL;
-
-      saveRecipeToDatabase(recipe);
-      clearFormInput();
+    const recipe = {
+      name: recipeNameInput.value.trim(),
+      ingredients: [], // Initialize the ingredients array
+      imageURL: null, // Initialize the imageURL property
     };
 
-    fileReader.readAsDataURL(file);
-  } else {
-    saveRecipeToDatabase(recipe);
-    clearFormInput();
-  }
-});
+    const ingredientsList = document.getElementById("ingredients-list");
+
+    for (let i = 0; i < ingredientsList.children.length; i++) {
+      const ingredient = ingredientsList.children[i].textContent.trim();
+      recipe.ingredients.push(ingredient);
+    }
+
+    const file = recipeImageInput.files[0];
+
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.onload = function (event) {
+        const imageURL = event.target.result;
+        recipe.imageURL = imageURL;
+
+        saveRecipeToDatabase(recipe);
+        clearFormInput();
+      };
+
+      fileReader.readAsDataURL(file);
+    } else {
+      saveRecipeToDatabase(recipe);
+      clearFormInput();
+    }
+  });
 
 function saveRecipeToDatabase(recipe) {
   // Push the recipe object to the database
@@ -169,17 +171,26 @@ function loadRecipes() {
         xBtn.textContent = "Select";
         xBtn.style.display = "none";
 
-        const removeRecipeBtn = document.getElementById("remove-recipe-btn");
+        const removeRecipeBtn = document.getElementById("edit-recipe-list");
 
         // Define variables to track the button state
         let originalBackgroundColor = removeRecipeBtn.style.backgroundColor;
         let originalTextColor = removeRecipeBtn.style.color;
 
+        // Assuming you have the grey-text element
+        const greyTextElement = document.querySelector(".grey-text");
+        const originalGreyText = greyTextElement.innerText; // Store the original text
+
         removeRecipeBtn.addEventListener("click", function () {
           if (xBtn.style.display === "none") {
             xBtn.style.display = "inline";
-            removeRecipeBtn.style.backgroundColor = "red";
+            removeRecipeBtn.style.backgroundColor = "#e4b7a4";
             removeRecipeBtn.style.color = "white";
+            removeRecipeBtn.innerText = "Done";
+
+            // Change the grey-text element when delete buttons are displayed
+            greyTextElement.innerText =
+              "Select a recipe to remove, then click Done";
           } else {
             // If delete buttons were displayed, remove selected recipes
             if (selectedRecipes.length > 0) {
@@ -188,6 +199,11 @@ function loadRecipes() {
             }
 
             xBtn.style.display = "none";
+            removeRecipeBtn.innerText = "Edit";
+
+            // Revert the grey-text element to its original state
+            greyTextElement.innerText = originalGreyText;
+
             removeRecipeBtn.style.backgroundColor = originalBackgroundColor;
             removeRecipeBtn.style.color = originalTextColor;
           }
@@ -220,11 +236,11 @@ function loadRecipes() {
             xBtn.textContent = "Remove";
           }
         });
-     
+
         newRecipeDiv.addEventListener("click", function () {
           // Retrieve the ingredients for the clicked recipe
           const ingredientsList = document.getElementById("items");
-    
+
           if (newRecipeDiv.classList.contains("recipe-clicked")) {
             // Remove the relevant ingredients from the shopping list
             for (const ingredient of recipe.ingredients) {
@@ -235,12 +251,13 @@ function loadRecipes() {
                 }
               }
             }
-            
+
             newRecipeDiv.classList.remove("recipe-clicked");
             newRecipeDiv.style.backgroundColor = "";
             recipeNameSpan.textContent = recipe.name;
             console.log(newRecipeDiv);
-            newRecipeDiv.querySelector(".background-img").style.display = "block";
+            newRecipeDiv.querySelector(".background-img").style.display =
+              "block";
             recipeNameSpan.appendChild(xBtn);
           } else {
             // Add the ingredients to the shopping list
@@ -248,7 +265,7 @@ function loadRecipes() {
               const listItem = document.createElement("li");
               listItem.textContent = ingredient;
               ingredientsList.appendChild(listItem);
-    
+
               // Add click event listener to the ingredient list item
               listItem.addEventListener("click", function () {
                 setTimeout(function () {
@@ -256,11 +273,12 @@ function loadRecipes() {
                 }, 100); // Add a small delay (e.g., 100 milliseconds)
               });
             }
-            
+
             newRecipeDiv.classList.add("recipe-clicked");
             newRecipeDiv.style.backgroundColor = "green";
             recipeNameSpan.innerHTML = "&#10004;";
-            newRecipeDiv.querySelector(".background-img").style.display = "none";
+            newRecipeDiv.querySelector(".background-img").style.display =
+              "none";
           }
         });
       }
