@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-  margin: 30px auto; 
+  margin: 10px auto; 
   background-color: #f2f0ee;
   display: flex;
   flex-direction: column;
@@ -25,14 +25,14 @@ body {
   border-radius: 35px;
   overflow: hidden;
   z-index: -1;
-  max-width: 767px;
-  height: calc(100vh - 60px);
-  padding: 40px 50px 30px 50px;
+  max-width: 900px;
+  height: calc(100vh - 20px);
+  padding: 10px 10px 10px 10px;
 }
 
 @media (max-width: 900px) {
   .container {
-    margin: 30px;
+    margin: 10px;
   }
 }
 
