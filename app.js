@@ -26,17 +26,28 @@ const card1 = document.getElementById("card-1");
 const card2 = document.getElementById("card-2");
 const card3 = document.getElementById("card-3");
 const card4 = document.getElementById("card-4");
+const container = document.querySelector(".container");
 
 // Intro logo fade out
+container.style.backgroundColor = "#202020";
 card2.style.display = "none";
 card3.style.display = "none";
 card4.style.display = "none";
 document.body.style.backgroundColor = "#202020";
 
+// Navigation buttons
+listBtn.style.display = "none"; // Hide the listBtn initially
+bookBtn.style.display = "none"; // Hide the bookBtn initially
+addRecipeBtn.style.display = "none"; // Hide the addRecipeBtn initially
+
 setTimeout(function () {
   card1.style.display = "none";
   card2.style.display = "block";
+  listBtn.style.display = "block";
+  bookBtn.style.display = "block";
+  addRecipeBtn.style.display = "block";
   navBtns.style.zIndex = "0";
+  container.style.backgroundColor = "#f2f0ee";
   document.body.style.backgroundColor = "#e4b7a4";
 }, 4000);
 
@@ -322,16 +333,17 @@ document
     ingredientsList.innerHTML = "";
   });
 
-function clearFormInput() {
-  // Clear the form fields
-  const recipeNameInput = document.getElementById("recipeName");
-  const recipeImageInput = document.getElementById("recipeImage");
-  const ingredientInput = document.getElementById("ingredients");
-  recipeNameInput.value = "";
-  recipeImageInput.value = "";
-  ingredientInput.value = "";
-  const ingredientsList = document.getElementById("ingredients-list");
-  ingredientsList.innerHTML = "";
-}
+  function clearFormInput() {
+    // Clear the form fields
+    const recipeNameInput = document.getElementById("recipeName");
+    const recipeImageInput = document.getElementById("imageUpload");
+    const ingredientInput = document.getElementById("ingredients");
+    recipeNameInput.value = "";
+    recipeImageInput.value = "";
+    ingredientInput.value = "";
+    const ingredientsList = document.getElementById("ingredients-list");
+    ingredientsList.innerHTML = "";
+  }
+  
 
 loadRecipes();
