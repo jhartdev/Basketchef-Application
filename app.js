@@ -322,7 +322,8 @@ document
   .getElementById("remove-list-btn")
   .addEventListener("click", function () {
     const itemsList = document.getElementById("items");
-    itemsList.innerHTML = ""; // Clear the shopping list
+    itemsList.innerHTML = ""; 
+    loadRecipes();
   });
 
 document
