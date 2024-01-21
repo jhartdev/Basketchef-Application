@@ -308,6 +308,7 @@ input {
   overflow-y: scroll;
   border: none;
   border-radius: 12px;
+  padding-bottom: 200px;
 }
 
 
