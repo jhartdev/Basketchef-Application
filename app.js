@@ -297,6 +297,37 @@ function loadRecipes() {
   });
 }
 
+// Add an event listener for the "Add Item" button in card-3
+document.getElementById("addItemBtn").addEventListener("click", function () {
+  const userItemInput = document.getElementById("userItem");
+  const userItemValue = userItemInput.value.trim();
+
+  if (userItemValue !== "") {
+    const itemsList = document.getElementById("items");
+    const listItem = document.createElement("li");
+    listItem.textContent = userItemValue;
+    itemsList.appendChild(listItem);
+
+    // Add a class to distinguish user-added items
+    listItem.classList.add("user-added-item");
+
+    // Clear the input field
+    userItemInput.value = "";
+  }
+});
+
+// Event listener for the user-added items in the shopping list
+document.getElementById("items").addEventListener("click", function (event) {
+  const clickedItem = event.target;
+
+  // Check if the clicked item is a user-added item
+  if (clickedItem.classList.contains("user-added-item")) {
+    // Toggle the line-through effect
+    clickedItem.classList.toggle("line-through");
+  }
+});
+
+
 function removeRecipe(recipeKey) {
   // Remove the recipe from the database
   console.log(recipeKey);
@@ -322,7 +353,7 @@ document
   .getElementById("remove-list-btn")
   .addEventListener("click", function () {
     const itemsList = document.getElementById("items");
-    itemsList.innerHTML = ""; 
+    itemsList.innerHTML = "";
     loadRecipes();
   });
 
@@ -334,17 +365,16 @@ document
     ingredientsList.innerHTML = "";
   });
 
-  function clearFormInput() {
-    // Clear the form fields
-    const recipeNameInput = document.getElementById("recipeName");
-    const recipeImageInput = document.getElementById("imageUpload");
-    const ingredientInput = document.getElementById("ingredients");
-    recipeNameInput.value = "";
-    recipeImageInput.value = "";
-    ingredientInput.value = "";
-    const ingredientsList = document.getElementById("ingredients-list");
-    ingredientsList.innerHTML = "";
-  }
-  
+function clearFormInput() {
+  // Clear the form fields
+  const recipeNameInput = document.getElementById("recipeName");
+  const recipeImageInput = document.getElementById("imageUpload");
+  const ingredientInput = document.getElementById("ingredients");
+  recipeNameInput.value = "";
+  recipeImageInput.value = "";
+  ingredientInput.value = "";
+  const ingredientsList = document.getElementById("ingredients-list");
+  ingredientsList.innerHTML = "";
+}
 
 loadRecipes();

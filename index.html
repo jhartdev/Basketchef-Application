@@ -59,6 +59,17 @@
         </h2>
         <h4 class="grey-text">Recipe items will appear here...</h4>
         <div class="custom-scrollbar" id="shoppingList">
+          <div class="user-input">
+            <label for="userItem">Add Item:</label>
+            <input
+              type="text"
+              id="userItem"
+              name="userItem"
+              autocomplete="off"
+              required
+            />
+            <button id="addItemBtn">+</button>
+          </div>
           <ul id="items"></ul>
         </div>
       </div>
