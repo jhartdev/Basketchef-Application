@@ -262,7 +262,7 @@ input {
   text-align: center;
   border-radius: 12px;
   cursor: pointer;
-  padding: 0px 20px;
+  padding: 10px 20px;
 }
 
 #emptyingredients-list-btn {
@@ -402,7 +402,7 @@ input {
   color: #e4b7a4;
   border-radius: 12px;
   padding: 12px 12px;
-  border: solid 3px #e4b7a49f;
+  border: none;
   font-size: 18px;
   z-index: 10000;
   cursor: pointer;
