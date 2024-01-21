@@ -286,8 +286,8 @@ function loadRecipes() {
             }
 
             newRecipeDiv.classList.add("recipe-clicked");
-            newRecipeDiv.style.backgroundColor = "green";
-            recipeNameSpan.innerHTML = "&#10004;";
+            newRecipeDiv.style.backgroundColor = "#e6af70";
+            recipeNameSpan.innerHTML = "Ingredients Added";
             newRecipeDiv.querySelector(".background-img").style.display =
               "none";
           }
