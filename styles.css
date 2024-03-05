@@ -113,6 +113,7 @@ ul {
 }
 
 #add-recipe-btn {
+  text-align: center;
   border-radius: 32px;
   font-size: 32px;
   color: #e4b7a4;
@@ -136,6 +137,7 @@ ul {
     min-width: 86px;
     height: 60px;
     font-size: 42px;
+    text-align: center;
   }
 
   .btn-icon {
