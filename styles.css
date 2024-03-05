@@ -124,6 +124,7 @@ ul {
 #book-btn,
 #list-btn,
 #add-recipe-btn {
+  text-align: center;
   min-width: 60px;
   height: 42px;
   cursor: pointer;
