@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-  margin: 10px auto; 
+  margin: 10px auto;
   background-color: #f2f0ee;
   display: flex;
   flex-direction: column;
@@ -67,8 +67,8 @@ ul {
 }
 
 .custom-scrollbar {
-  overflow-y: scroll; 
-  max-height: 100%; 
+  overflow-y: scroll;
+  max-height: 100%;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 }
@@ -124,21 +124,23 @@ ul {
 #book-btn,
 #list-btn,
 #add-recipe-btn {
-  text-align: center;
-  width: 60px;
-  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px; 
+  height: 48px; 
   cursor: pointer;
+  border-radius: 32px; 
 }
 
 @media (min-width: 900px) {
-  /* Set larger size for buttons when the page is larger than 900px */
   #book-btn,
   #list-btn,
-  #add-recipe-btn {
-    min-width: 86px;
-    height: 60px;
-    font-size: 42px;
-    text-align: center;
+  #add-recipe-btn,
+  #addItemBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .btn-icon {
@@ -147,6 +149,8 @@ ul {
 }
 
 .btn-icon {
+  display: flex;
+  margin: auto;
   width: 30px;
 }
 
@@ -237,7 +241,6 @@ input {
   padding: 2px;
 }
 
-
 #imageUpload {
   display: flex;
   justify-content: center;
@@ -318,7 +321,6 @@ input {
   padding-bottom: 200px;
 }
 
-
 .recipe {
   position: relative;
   border-radius: 12px;
@@ -357,7 +359,6 @@ input {
   border-radius: inherit;
 }
 
-
 .recipe-name {
   position: absolute;
   top: 50%;
@@ -382,7 +383,7 @@ input {
   background: #f2f0ee;
   border: solid 2px #e4b7a4;
   cursor: pointer;
-  padding: 10px;
+  padding: 6px;
 }
 
 #items {
@@ -422,8 +423,6 @@ input {
   margin-bottom: 12px;
 }
 
-
-
 .line-through {
   color: #585858 !important;
   text-decoration: line-through !important;
@@ -456,8 +455,6 @@ input {
   margin-right: 20px;
   cursor: pointer;
 }
-
-
 
 .selected {
   filter: grayscale();
