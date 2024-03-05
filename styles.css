@@ -115,7 +115,6 @@ ul {
 #add-recipe-btn {
   text-align: center;
   border-radius: 32px;
-  font-size: 32px;
   color: #e4b7a4;
   background: #f2f0ee;
   border: solid 2px #e4b7a4;
@@ -142,16 +141,13 @@ ul {
     justify-content: center;
     align-items: center;
   }
-
-  .btn-icon {
-    width: 45px;
-  }
 }
 
 .btn-icon {
   display: flex;
   margin: auto;
-  width: 30px;
+  height: 100%;
+  padding: 10px
 }
 
 #book-btn:active,
