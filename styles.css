@@ -113,21 +113,18 @@ ul {
 }
 
 #add-recipe-btn {
-  text-align: center;
   border-radius: 32px;
   color: #e4b7a4;
-  background: #f2f0ee;
   border: solid 2px #e4b7a4;
 }
 
 #book-btn,
 #list-btn,
 #add-recipe-btn {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
-  width: 80px; 
-  height: 48px; 
+  height: 50px; 
   cursor: pointer;
   border-radius: 32px; 
 }
@@ -137,15 +134,14 @@ ul {
   #list-btn,
   #add-recipe-btn,
   #addItemBtn {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
   }
 }
 
 .btn-icon {
-  display: flex;
-  margin: auto;
+  display: grid;
   height: 100%;
   padding: 10px
 }
