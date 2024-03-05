@@ -370,12 +370,11 @@ input {
   align-items: center;
   border-radius: 32px;
   font-size: 32px;
-  width: 80px;
+  width: 60px;
   color: #e4b7a4;
   background: #f2f0ee;
   border: solid 2px #e4b7a4;
   cursor: pointer;
-  padding: 6px;
 }
 
 #items {
