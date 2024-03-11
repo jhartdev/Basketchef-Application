@@ -275,6 +275,7 @@ input {
   border-radius: 12px;
   border: solid #e4b7a4 1px;
   padding: 5px;
+  margin: 0 20px;
   cursor: pointer;
   height: 46px;
   width: 100px;
