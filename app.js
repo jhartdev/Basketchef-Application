@@ -40,7 +40,7 @@ listBtn.style.display = "none"; // Hide the listBtn initially
 bookBtn.style.display = "none"; // Hide the bookBtn initially
 addRecipeBtn.style.display = "none"; // Hide the addRecipeBtn initially
 
-setTimeout(function () {
+function transitionToMainInterface() {
   card1.style.display = "none";
   card2.style.display = "block";
   listBtn.style.display = "block";
@@ -49,7 +49,8 @@ setTimeout(function () {
   navBtns.style.zIndex = "0";
   container.style.backgroundColor = "#f2f0ee";
   document.body.style.backgroundColor = "#e4b7a4";
-}, 4000);
+}
+
 
 let currentCard = card2; // Initialize currentCard with a default value
 
@@ -158,6 +159,7 @@ function loadRecipes() {
     console.log("Recipes:", recipes);
     const gridContainer = document.querySelector(".grid-container");
     gridContainer.innerHTML = ""; // Clear the existing recipe elements
+    transitionToMainInterface();
 
     for (const key in recipes) {
       if (Object.hasOwnProperty.call(recipes, key)) {
@@ -291,6 +293,7 @@ function loadRecipes() {
             newRecipeDiv.querySelector(".background-img").style.display =
               "none";
           }
+          
         });
       }
     }
